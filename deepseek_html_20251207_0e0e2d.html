@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زياد | استراتيجي تسويق رقمي وإدارة حملات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- خلفيات متحركة -->
+    <div class="background-effects">
+        <div class="gradient-mesh"></div>
+        <div class="floating-particles"></div>
+        <div class="dynamic-lines"></div>
+    </div>
+    
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- الشعار -->
+            <a href="#home" class="nav-logo">
+                <div class="logo-symbol">
+                    <span class="symbol-dot"></span>
+                    <span class="symbol-line"></span>
+                </div>
+                <span class="logo-text" data-key="logo">Z.</span>
+            </a>
+            
+            <!-- قائمة التنقل -->
+            <div class="nav-menu">
+                <div class="nav-indicator"></div>
+                <a href="#home" class="nav-link active" data-section="home">
+                    <span class="nav-number">01</span>
+                    <span class="nav-label" data-key="navHome">الرئيسية</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <span class="nav-number">02</span>
+                    <span class="nav-label" data-key="navAbout">عني</span>
+                </a>
+                <a href="#services" class="nav-link" data-section="services">
+                    <span class="nav-number">03</span>
+                    <span class="nav-label" data-key="navServices">خدماتي</span>
+                </a>
+                <a href="#portfolio" class="nav-link" data-section="portfolio">
+                    <span class="nav-number">04</span>
+                    <span class="nav-label" data-key="navPortfolio">حملاتي</span>
+                </a>
+                <a href="#clients" class="nav-link" data-section="clients">
+                    <span class="nav-number">05</span>
+                    <span class="nav-label" data-key="navClients">عملائي</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <span class="nav-number">06</span>
+                    <span class="nav-label" data-key="navContact">تواصل</span>
+                </a>
+            </div>
+            
+            <!-- تبديل اللغة -->
+            <div class="language-switcher">
+                <button class="language-btn" id="languageBtn">
+                    <span class="current-lang" data-key="language">EN</span>
+                    <i class="fas fa-globe"></i>
+                </button>
+                <div class="language-dropdown">
+                    <button class="lang-option" data-lang="ar">
+                        <i class="fas fa-check check-icon"></i>
+                        <span>العربية</span>
+                    </button>
+                    <button class="lang-option" data-lang="en">
+                        <i class="fas fa-check check-icon"></i>
+                        <span>English</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- زر القائمة للموبايل -->
+            <button class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- زر الرجوع للأعلى -->
+    <button class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="page active">
+        <div class="container">
+            <!-- الهيدر -->
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span data-key="heroBadge">استراتيجي تسويق رقمي</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line" data-key="heroTitle1">أبدع. أتحليل.</span>
+                        <span class="title-line" data-key="heroTitle2">أحقق النمو.</span>
+                    </h1>
+                    
+                    <p class="hero-description" data-key="heroDescription">
+                        أصمم استراتيجيات تسويقية ذكية تحول البيانات إلى نتائج ملموسة. خبرة 6+ سنوات في إدارة الحملات الناجحة.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" data-count="150">0</div>
+                            <div class="stat-label" data-key="statProjects">مشروع ناجح</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="98">0</div>
+                            <div class="stat-label" data-key="statClients">رضا العملاء</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="300">0</div>
+                            <div class="stat-label" data-key="statGrowth">% نمو في الأداء</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="btn btn-primary" data-section="portfolio">
+                            <span data-key="btnViewWork">شاهد أعمالي</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline" data-section="contact">
+                            <span data-key="btnLetsWork">لنعمل معاً</span>
+                            <i class="fas fa-comment"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="visual-grid">
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                        </div>
+                        <div class="visual-graph">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ملخص الأقسام -->
+            <div class="sections-overview">
+                <div class="section-header">
+                    <h2 class="section-title" data-key="overviewTitle">استكشف خبراتي</h2>
+                    <p class="section-subtitle" data-key="overviewSubtitle">تصفح أقسامي المختلفة وتعرف على خدماتي وخبراتي في التسويق الرقمي</p>
+                </div>
+                
+                <div class="overview-grid">
+                    <a href="#about" class="overview-card" data-section="about">
+                        <div class="card-header">
+                            <div class="card-number">01</div>
+                            <div class="card-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 data-key="overviewAboutTitle">عني</h3>
+                            <p data-key="overviewAboutDesc">تعرف على مسيرتي المهنية وخبراتي في التسويق الرقمي</p>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#services" class="overview-card" data-section="services">
+                        <div class="card-header">
+                            <div class="card-number">02</div>
+                            <div class="card-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 data-key="overviewServicesTitle">خدماتي</h3>
+                            <p data-key="overviewServicesDesc">اكتشف خدماتي المتخصصة في التسويق الرقمي وإدارة الحملات</p>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#portfolio" class="overview-card" data-section="portfolio">
+                        <div class="card-header">
+                            <div class="card-number">03</div>
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 data-key="overviewPortfolioTitle">حملاتي</h3>
+                            <p data-key="overviewPortfolioDesc">شاهد مجموعة من أبرز الحملات الناجحة التي قمت بإدارتها</p>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#clients" class="overview-card" data-section="clients">
+                        <div class="card-header">
+                            <div class="card-number">04</div>
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 data-key="overviewClientsTitle">عملائي</h3>
+                            <p data-key="overviewClientsDesc">تعرف على الشركات التي عملت معها ونتائج شراكاتنا</p>
+                        </div>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- إحصائيات سريعة -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">+250%</div>
+                        <div class="stat-label" data-key="statSalesGrowth">نمو في المبيعات</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">85%</div>
+                        <div class="stat-label" data-key="statGoalAchievement">تحقيق الأهداف</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label" data-key="statSupport">دعم ومتابعة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة عني -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-key="aboutTitle">عني</h2>
+                <p class="section-subtitle" data-key="aboutSubtitle">خبير تسويق رقمي مع شغف لتحويل البيانات إلى استراتيجيات ناجحة</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-grid">
+                    <!-- صورة شخصية -->
+                    <div class="about-image">
+                        <div class="image-wrapper">
+                            <div class="image-frame">
+                                <div class="frame-border"></div>
+                                <div class="frame-border frame-border-2"></div>
+                                <div class="image-placeholder">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                            </div>
+                            <div class="image-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- معلومات شخصية -->
+                    <div class="about-info">
+                        <div class="info-header">
+                            <h3 data-key="aboutName">زياد أحمد</h3>
+                            <p class="info-title" data-key="aboutPosition">استراتيجي تسويق رقمي</p>
+                        </div>
+                        
+                        <div class="info-content">
+                            <p data-key="aboutDescription">
+                                مع أكثر من 6 سنوات من الخبرة في التسويق الرقمي، تخصصت في تحويل البيانات المعقدة إلى استراتيجيات تسويقية فعالة. 
+                                أساعد الشركات على النمو من خلال فهم عميق لسلوك العملاء وتطوير حلول مخصصة.
+                            </p>
+                            
+                            <div class="info-stats">
+                                <div class="personal-stat">
+                                    <div class="stat-number">150+</div>
+                                    <div class="stat-label" data-key="aboutProjects">مشروع منجز</div>
+                                </div>
+                                <div class="personal-stat">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label" data-key="aboutHappyClients">عميل سعيد</div>
+                                </div>
+                                <div class="personal-stat">
+                                    <div class="stat-number">6+</div>
+                                    <div class="stat-label" data-key="aboutExperience">سنوات خبرة</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-showcase">
+                            <h4 data-key="skillsTitle">تخصصاتي الرئيسية</h4>
+                            <div class="skills-list">
+                                <span class="skill-tag" data-key="skill1">إعلانات وسائل التواصل</span>
+                                <span class="skill-tag" data-key="skill2">تحليل البيانات</span>
+                                <span class="skill-tag" data-key="skill3">استراتيجية المحتوى</span>
+                                <span class="skill-tag" data-key="skill4">تحسين محركات البحث</span>
+                                <span class="skill-tag" data-key="skill5">إدارة الحملات</span>
+                                <span class="skill-tag" data-key="skill6">تحسين التحويل</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- الجدول الزمني -->
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-content">
+                            <h4 data-key="timeline1Title">بداية الرحلة</h4>
+                            <p data-key="timeline1Desc">تأسيس أول مشروع تسويقي رقمي مستقل</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4 data-key="timeline2Title">التخصص</h4>
+                            <p data-key="timeline2Desc">التركيز على إعلانات وسائل التواصل والتحليلات</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4 data-key="timeline3Title">التميز</h4>
+                            <p data-key="timeline3Desc">توسيع نطاق العمل ليشمل استراتيجيات متكاملة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- زر العودة للرئيسية -->
+            <div class="back-home">
+                <a href="#home" class="btn btn-outline" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span data-key="btnBackHome">العودة للرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة الخدمات -->
+    <section id="services" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-key="servicesTitle">خدماتي</h2>
+                <p class="section-subtitle" data-key="servicesSubtitle">حلول تسويقية شاملة مصممة لتحقيق أهدافك</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-key="service1Title">إعلانات وسائل التواصل</h3>
+                        <p data-key="service1Desc">إدارة متكاملة لحملات الإعلانات على جميع المنصات الرقمية</p>
+                        <ul class="service-features">
+                            <li data-key="service1Feature1">فيسبوك وإنستغرام</li>
+                            <li data-key="service1Feature2">تيك توك وسناب شات</li>
+                            <li data-key="service1Feature3">لينكدإن وتويتر</li>
+                        </ul>
+                    </div>
+                    <div class="service-badge" data-key="servicePopular">الأكثر طلباً</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-key="service2Title">تحليل البيانات</h3>
+                        <p data-key="service2Desc">تحليل أداء الحملات وتقديم تقارير مفصلة واقتراحات تحسين</p>
+                        <ul class="service-features">
+                            <li data-key="service2Feature1">تقارير أداء أسبوعية</li>
+                            <li data-key="service2Feature2">تحليل المنافسين</li>
+                            <li data-key="service2Feature3">توصيات عملية</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-key="service3Title">تحسين محركات البحث</h3>
+                        <p data-key="service3Desc">تحسين ظهور موقعك في نتائج البحث وزيادة الزيارات العضوية</p>
+                        <ul class="service-features">
+                            <li data-key="service3Feature1">بحث الكلمات المفتاحية</li>
+                            <li data-key="service3Feature2">تحسين المحتوى</li>
+                            <li data-key="service3Feature3">بناء الروابط</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-key="service4Title">استراتيجية محتوى</h3>
+                        <p data-key="service4Desc">تخطيط وتنفيذ استراتيجيات محتوى فعالة تجذب الجمهور</p>
+                        <ul class="service-features">
+                            <li data-key="service4Feature1">تخطيط المحتوى</li>
+                            <li data-key="service4Feature2">كتابة الإعلانات</li>
+                            <li data-key="service4Feature3">إدارة المحتوى</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- عملية العمل -->
+            <div class="work-process">
+                <h3 data-key="processTitle">كيف أعمل؟</h3>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4 data-key="step1Title">التحليل والتخطيط</h4>
+                            <p data-key="step1Desc">فهم عميق للأهداف وتحليل السوق المستهدف</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4 data-key="step2Title">التنفيذ</h4>
+                            <p data-key="step2Desc">تنفيذ الاستراتيجية بدقة مع مراقبة مستمرة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4 data-key="step3Title">التحسين</h4>
+                            <p data-key="step3Desc">تحسين مستمر للأداء بناءً على البيانات</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h4 data-key="step4Title">التقارير</h4>
+                            <p data-key="step4Desc">تقديم تقارير مفصلة ونصائح للتحسين</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- زر العودة للرئيسية -->
+            <div class="back-home">
+                <a href="#home" class="btn btn-outline" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span data-key="btnBackHome">العودة للرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة الحملات -->
+    <section id="portfolio" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-key="portfolioTitle">حملاتي الناجحة</h2>
+                <p class="section-subtitle" data-key="portfolioSubtitle">أمثلة حية لاستراتيجيات تسويقية حققت نتائج مذهلة</p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all" data-key="filterAll">الكل</button>
+                <button class="filter-btn" data-filter="social" data-key="filterSocial">وسائل التواصل</button>
+                <button class="filter-btn" data-filter="seo" data-key="filterSEO">تحسين محركات البحث</button>
+                <button class="filter-btn" data-filter="content" data-key="filterContent">استراتيجية محتوى</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-image">
+                        <div class="image-overlay">
+                            <span data-key="viewDetails">عرض التفاصيل</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category" data-key="categorySocial">وسائل التواصل</div>
+                        <h4 data-key="project1Title">حملة إطلاق العلامة التجارية</h4>
+                        <p data-key="project1Desc">حملة متكاملة لإطلاق علامة تجارية جديدة في سوق الأزياء</p>
+                        <div class="portfolio-stats">
+                            <span><i class="fas fa-eye"></i> <span data-key="project1Views">2.5M مشاهدة</span></span>
+                            <span><i class="fas fa-engagement"></i> <span data-key="project1Engagement">25% تفاعل</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="seo">
+                    <div class="portfolio-image">
+                        <div class="image-overlay">
+                            <span data-key="viewDetails">عرض التفاصيل</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category" data-key="categorySEO">تحسين محركات البحث</div>
+                        <h4 data-key="project2Title">زيادة الظهور العضوي</h4>
+                        <p data-key="project2Desc">تحسين ترتيب موقع إلكتروني في نتائج البحث الأولى</p>
+                        <div class="portfolio-stats">
+                            <span><i class="fas fa-search"></i> <span data-key="project2Traffic">+200% زيارات</span></span>
+                            <span><i class="fas fa-arrow-up"></i> <span data-key="project2Ranking">15 مرتبة</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="content">
+                    <div class="portfolio-image">
+                        <div class="image-overlay">
+                            <span data-key="viewDetails">عرض التفاصيل</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category" data-key="categoryContent">استراتيجية محتوى</div>
+                        <h4 data-key="project3Title">بناء الهوية الرقمية</h4>
+                        <p data-key="project3Desc">تطوير هوية رقمية متكاملة لشركة تقنية ناشئة</p>
+                        <div class="portfolio-stats">
+                            <span><i class="fas fa-users"></i> <span data-key="project3Followers">+50K متابع</span></span>
+                            <span><i class="fas fa-growth"></i> <span data-key="project3Growth">85% نمو</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- زر العودة للرئيسية -->
+            <div class="back-home">
+                <a href="#home" class="btn btn-outline" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span data-key="btnBackHome">العودة للرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة العملاء -->
+    <section id="clients" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-key="clientsTitle">عملائي</h2>
+                <p class="section-subtitle" data-key="clientsSubtitle">شراكات ناجحة بنيت على الثقة والنتائج الملموسة</p>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-logo">TECHCO</div>
+                    <div class="client-content">
+                        <h4 data-key="client1Name">شركة TechCo</h4>
+                        <p data-key="client1Testimonial">"زياد ساعدنا على زيادة مبيعاتنا بنسبة 300% خلال 6 أشهر فقط."</p>
+                        <div class="client-info">
+                            <span data-key="client1Person">أحمد السيد</span>
+                            <span data-key="client1Position">مدير التسويق</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-logo">STYLEHUB</div>
+                    <div class="client-content">
+                        <h4 data-key="client2Name">متجر StyleHub</h4>
+                        <p data-key="client2Testimonial">"استراتيجياته المبتكرة حولت علامتنا التجارية إلى رائدة في السوق."</p>
+                        <div class="client-info">
+                            <span data-key="client2Person">سارة محمد</span>
+                            <span data-key="client2Position">المؤسسة والمديرة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-key="testimonial1">"العمل مع زياد كان نقلة نوعية في استراتيجيتنا التسويقية. النتائج تتحدث عن نفسها."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-name" data-key="testimonial1Name">محمد الخالد</div>
+                            <div class="author-title" data-key="testimonial1Position">CEO, EduSmart</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-key="testimonial2">"محترف جداً وفهم عميق لاحتياجات السوق. أنصح بالعمل معه بشدة."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-name" data-key="testimonial2Name">نورة القحطاني</div>
+                            <div class="author-title" data-key="testimonial2Position">مديرة التسويق, Foodie</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- زر العودة للرئيسية -->
+            <div class="back-home">
+                <a href="#home" class="btn btn-outline" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span data-key="btnBackHome">العودة للرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- صفحة الاتصال -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-key="contactTitle">لنعمل معاً</h2>
+                <p class="section-subtitle" data-key="contactSubtitle">لنتحدث عن مشروعك ونبدأ رحلة النمو معاً</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 data-key="contactEmail">البريد الإلكتروني</h4>
+                            <p>ziad@marketing-expert.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 data-key="contactPhone">الهاتف</h4>
+                            <p>+966 55 123 4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 data-key="contactHours">ساعات العمل</h4>
+                            <p data-key="contactHoursText">الأحد - الخميس: 9 ص - 6 م</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="projectForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="اسمك الكامل" required data-key="formName" data-placeholder="اسمك الكامل">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" placeholder="بريدك الإلكتروني" required data-key="formEmail" data-placeholder="بريدك الإلكتروني">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select required data-key="formProjectType">
+                                <option value="" data-key="formSelectProject">نوع المشروع</option>
+                                <option value="consulting" data-key="formConsulting">استشارة تسويقية</option>
+                                <option value="ads" data-key="formAds">إعلانات وسائل التواصل</option>
+                                <option value="seo" data-key="formSEO">تحسين محركات البحث</option>
+                                <option value="strategy" data-key="formStrategy">استراتيجية محتوى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea placeholder="أخبرني عن مشروعك وأهدافك..." rows="5" required data-key="formMessage" data-placeholder="أخبرني عن مشروعك وأهدافك..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <span data-key="btnSend">إرسال الطلب</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- زر العودة للرئيسية -->
+            <div class="back-home">
+                <a href="#home" class="btn btn-outline" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span data-key="btnBackHome">العودة للرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-symbol">
+                        <span class="symbol-dot"></span>
+                        <span class="symbol-line"></span>
+                    </div>
+                    <span class="logo-text" data-key="logo">Z.</span>
+                </div>
+                
+                <p class="footer-description" data-key="footerDescription">
+                    استراتيجي تسويق رقمي متخصص في تحويل الأفكار إلى نتائج ملموسة. 
+                    أجمع بين الإبداع والتحليل لبناء استراتيجيات ناجحة.
+                </p>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p data-key="copyright">© 2024 زياد. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
