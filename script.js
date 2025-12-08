@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // الصفحة الرئيسية
             heroBadge: "استراتيجي تسويق رقمي",
-            heroTitle1: "أبدع. أتحليل.",
+            heroTitle1: "أبدع. أحلل.",
             heroTitle2: "أحقق النمو.",
             heroDescription: "أصمم استراتيجيات تسويقية ذكية تحول البيانات إلى نتائج ملموسة. خبرة 6+ سنوات في إدارة الحملات الناجحة.",
             btnViewWork: "شاهد أعمالي",
