@@ -1,898 +1,646 @@
-// بورتفوليو خبير تسويق - نظام ثنائي اللغة كامل
+// script.js - ملف الجافاسكريبت الرئيسي - الإصدار المعدل والمصحح
 
+// نظام الترجمة المحسّن والمصحح
+const translations = {
+    ar: {
+        // التنقل
+        logo: "أسيل",
+        navHome: "الرئيسية",
+        navProfile: "الملف الشخصي",
+        navProjects: "المشاريع",
+        navSkills: "المهارات",
+        navContact: "اتصل بي",
+        language: "EN",
+        backToHome: "العودة للرئيسية",
+        
+        // الصفحة الرئيسية
+        heroTitle: "مرحباً، أنا أسيل<br>مصممة جرافيكية إبداعية",
+        heroDescription: "أقوم بتحويل الأفكار إلى تصاميم بصرية مذهلة باستخدام أحدث أدوات التصميم وأفضل ممارسات الصناعة. لدي شغف بإنشاء هويات بصرية وتصاميم جرافيكية مع تركيز كبير على التفاصيل والجودة والإبداع.",
+        viewProjects: "عرض مشاريعي",
+        contactMe: "تواصل معي",
+        sectionsTitle: "استكشف عالمي الإبداعي",
+        
+        // ملخص الأقسام
+        summaryProfileTitle: "الملف الشخصي",
+        summaryProfileDesc: "تعرف على مسيرتي المهنية وخبراتي في مجال التصميم الجرافيكي والإبداع البصري. اكتشف شغفي وتخصصاتي الفنية.",
+        summaryProjectsTitle: "المشاريع",
+        summaryProjectsDesc: "تصفح معرض أعمالي المتنوعة في التصميم الجرافيكي، الهويات البصرية، والمواد الإعلانية الإبداعية.",
+        summarySkillsTitle: "المهارات",
+        summarySkillsDesc: "اكتشف مهاراتي التقنية والإبداعية المتقدمة في مختلف برامج وتقنيات التصميم الحديثة والمتطورة.",
+        summaryContactTitle: "اتصل بي",
+        summaryContactDesc: "تواصل معي لمناقشة مشروعك القادم أو للحصول على استشارة تصميمية احترافية تناسب احتياجاتك.",
+        viewProfile: "عرض الملف",
+        viewProjects2: "عرض المشاريع",
+        viewSkills: "عرض المهارات",
+        contactNow: "تواصل الآن",
+        
+        // صفحة الملف الشخصي
+        profileName: "أسيل",
+        profileTitle: "مصممة جرافيكية ومطورة هويات بصرية",
+        profileDescription: "أنا مصممة جرافيكية محترفة مع سنوات من الخبرة في إنشاء هويات بصرية متميزة وتصاميم إبداعية مبتكرة. أعمل على تحويل الأفكار المجردة إلى واقع بصري جذاب عبر استخدام أحدث أدوات التصميم والبرمجيات الاحترافية.",
+        experienceTitle: "الخبرة المهنية",
+        experienceDescription: "عملت على مجموعة متنوعة من المشاريع الإبداعية التي ساهمت في تطوير مهاراتي ومعرفتي في مجال التصميم:",
+        experienceItem1: "تصميم هويات بصرية متكاملة للعديد من الشركات المحلية والدولية بمختلف القطاعات",
+        experienceItem2: "إنشاء مواد تسويقية وإعلانية مبتكرة للعديد من الحملات الترويجية الناجحة",
+        experienceItem3: "تصميم واجهات مستخدم وتجارب بصرية متقدمة لتطبيقات ومواقع إلكترونية",
+        experienceItem4: "تطوير أنظمة تصميم متكاملة لتحسين تجربة العلامات التجارية وزيادة فعاليتها",
+        
+        // صفحة المشاريع
+        projectsTitle: "مشاريعي الإبداعية",
+        projectsDescription: "إليك مجموعة مختارة من أبرز المشاريع التصميمية التي قمت بتنفيذها مؤخراً، والتي تعكس تنوع مهاراتي وإبداعي في مجالات التصميم المختلفة.",
+        project1Title: "هوية بصرية متكاملة",
+        project1Description: "تصميم هوية بصرية كاملة تشمل الشعار، نظام الألوان، الخطوط، والمواد الترويجية لشركة ناشئة في مجال التكنولوجيا.",
+        project2Title: "مواد تسويقية مطبوعة",
+        project2Description: "تصميم مجموعة متكاملة من المواد المطبوعة لحملة تسويقية واسعة النطاق تشمل بروشورات، فلayers، ومواد عرض.",
+        project3Title: "واجهة تطبيق جوال",
+        project3Description: "تصميم واجهة مستخدم وتجربة مستخدم متكاملة لتطبيق جوال مبتكر في قطاع التكنولوجيا المالية والخدمات المصرفية.",
+        project4Title: "تصميم موقع إلكتروني",
+        project4Description: "تصميم واجهة موقع إلكتروني متكامل مع التركيز على تجربة المستخدم، الجاذبية البصرية، والاستجابة للأجهزة المختلفة.",
+        project5Title: "مواد بصرية للوسائط المتعددة",
+        project5Description: "إنشاء محتوى بصري متكامل وفيديوهات رسومية متحركة لحملة إعلانية رقمية واسعة على منصات التواصل الاجتماعي.",
+        project6Title: "تصميم كتاب إلكتروني",
+        project6Description: "تصميم وتخطيط كتاب إلكتروني تفاعلي مع رسوم توضيحية مخصصة وأسلوب بصري جذاب لدار نشر رائدة.",
+        
+        // صفحة المهارات
+        skillsTitle: "مهاراتي المتقدمة",
+        skillsDescription: "مجموعة المهارات التقنية والإبداعية المتطورة التي أتمتع بها في مجال التصميم الجرافيكي والوسائط الرقمية، مع تركيز على الابتكار والتطوير المستمر.",
+        designSkills: "مهارات التصميم الأساسية",
+        skillAdobe: "Adobe Creative Suite",
+        skillUIUX: "تصميم UI/UX",
+        skillLogo: "تصميم الشعارات والهويات",
+        skillTypography: "التخطيط الطباعي والأنماط",
+        technicalSkills: "المهارات التقنية المتقدمة",
+        skillFigma: "Figma & Sketch",
+        skillMotion: "الرسوم المتحركة والمؤثرات",
+        skillPrint: "التصميم للطباعة والإنتاج",
+        skillWeb: "تصميم الويب والاستجابة",
+        creativeSkills: "المهارات الإبداعية والقيادية",
+        skillConcept: "تطوير المفاهيم والإبداع",
+        skillBranding: "الهوية البصرية والتسويق",
+        skillColor: "نظرية الألوان والتنسيق",
+        skillIllustration: "الرسم التوضيحي والفني",
+        
+        // صفحة الاتصال
+        contactTitle: "تواصل معي",
+        contactDescription: "أهلاً بك! لا تتردد في التواصل معي لمناقشة مشروعك التصميمي القادم، أو لأي استفسارات أخرى. سأكون سعيدة بمساعدتك وتحويل أفكارك إلى واقع إبداعي مميز.",
+        contactAddressTitle: "العنوان",
+        contactAddress: "الرياض، المملكة العربية السعودية",
+        contactPhoneTitle: "الهاتف",
+        contactEmailTitle: "البريد الإلكتروني",
+        contactHoursTitle: "ساعات العمل",
+        contactHours: "الأحد - الخميس: 9 صباحاً - 6 مساءً",
+        formName: "الاسم الكامل *",
+        formEmail: "البريد الإلكتروني *",
+        formSubject: "الموضوع *",
+        formMessage: "الرسالة *",
+        formMessagePlaceholder: "أهلاً أسيل، أرغب في مناقشة مشروع تصميمي معك...",
+        formSubmit: "إرسال الرسالة",
+        
+        // التذييل
+        footerLogo: "أسيل",
+        footerDescription: "مصممة جرافيكية محترفة متخصصة في إنشاء هويات بصرية وتصاميم إبداعية مبتكرة. أسعى دائمًا للتميز والإبداع في كل مشروع.",
+        footerQuickLinks: "روابط سريعة",
+        footerServices: "خدماتي",
+        service1: "تصميم الهويات البصرية",
+        service2: "تصميم المواد المطبوعة",
+        service3: "تصميم واجهات المستخدم",
+        service4: "تصميم مواقع الويب",
+        service5: "الرسوم المتحركة والمؤثرات",
+        footerNewsletter: "اشترك في النشرة البريدية",
+        footerNewsletterDesc: "اشترك لتصلك آخر أعمالي ونصائح تصميمية حصرية.",
+        newsletterPlaceholder: "بريدك الإلكتروني",
+        footerCopyright: "© أسيل. جميع الحقوق محفوظة.",
+        footerPrivacy: "سياسة الخصوصية"
+    },
+    en: {
+        // Navigation
+        logo: "Aseel",
+        navHome: "Home",
+        navProfile: "Profile",
+        navProjects: "Projects",
+        navSkills: "Skills",
+        navContact: "Contact",
+        language: "AR",
+        backToHome: "Back to Home",
+        
+        // Home Page
+        heroTitle: "Hello, I'm Aseel<br>Creative Graphic Designer",
+        heroDescription: "I transform ideas into stunning visual designs using the latest design tools and industry best practices. I'm passionate about creating visual identities and graphic designs with a strong focus on detail, quality, and creativity.",
+        viewProjects: "View My Projects",
+        contactMe: "Contact Me",
+        sectionsTitle: "Explore My Creative World",
+        
+        // Sections Summary
+        summaryProfileTitle: "Profile",
+        summaryProfileDesc: "Learn about my professional journey and experience in graphic design and visual creativity. Discover my passion and artistic specializations.",
+        summaryProjectsTitle: "Projects",
+        summaryProjectsDesc: "Browse my diverse portfolio of works in graphic design, visual identities, and creative advertising materials.",
+        summarySkillsTitle: "Skills",
+        summarySkillsDesc: "Discover my advanced technical and creative skills in various modern and evolving design programs and techniques.",
+        summaryContactTitle: "Contact",
+        summaryContactDesc: "Contact me to discuss your upcoming project or to get a professional design consultation tailored to your needs.",
+        viewProfile: "View Profile",
+        viewProjects2: "View Projects",
+        viewSkills: "View Skills",
+        contactNow: "Contact Now",
+        
+        // Profile Page
+        profileName: "Aseel",
+        profileTitle: "Graphic Designer & Visual Identity Developer",
+        profileDescription: "I am a professional graphic designer with years of experience in creating distinctive visual identities and innovative creative designs. I work on transforming abstract ideas into attractive visual reality using the latest design tools and professional software.",
+        experienceTitle: "Professional Experience",
+        experienceDescription: "I have worked on a variety of creative projects that have contributed to developing my skills and knowledge in design:",
+        experienceItem1: "Designing comprehensive visual identities for many local and international companies across various sectors",
+        experienceItem2: "Creating innovative marketing and advertising materials for numerous successful promotional campaigns",
+        experienceItem3: "Designing advanced user interfaces and visual experiences for applications and websites",
+        experienceItem4: "Developing comprehensive design systems to improve brand experiences and increase effectiveness",
+        
+        // Projects Page
+        projectsTitle: "My Creative Projects",
+        projectsDescription: "Here is a curated selection of the most prominent design projects I have recently completed, reflecting the diversity of my skills and creativity in various design fields.",
+        project1Title: "Complete Visual Identity",
+        project1Description: "Design of a complete visual identity including logo, color system, fonts, and promotional materials for a tech startup.",
+        project2Title: "Printed Marketing Materials",
+        project2Description: "Design of a comprehensive set of printed materials for a large-scale marketing campaign including brochures, flyers, and display materials.",
+        project3Title: "Mobile App Interface",
+        project3Description: "Design of a complete user interface and user experience for an innovative mobile app in the fintech and banking services sector.",
+        project4Title: "Website Design",
+        project4Description: "Design of a complete website interface with focus on user experience, visual appeal, and responsiveness across different devices.",
+        project5Title: "Multimedia Visual Materials",
+        project5Description: "Creating comprehensive visual content and animated motion graphics for a wide digital advertising campaign on social media platforms.",
+        project6Title: "E-book Design",
+        project6Description: "Design and layout of an interactive e-book with custom illustrations and attractive visual style for a leading publishing house.",
+        
+        // Skills Page
+        skillsTitle: "My Advanced Skills",
+        skillsDescription: "A collection of advanced technical and creative skills I possess in the field of graphic design and digital media, with a focus on innovation and continuous development.",
+        designSkills: "Core Design Skills",
+        skillAdobe: "Adobe Creative Suite",
+        skillUIUX: "UI/UX Design",
+        skillLogo: "Logo & Identity Design",
+        skillTypography: "Typography & Patterns",
+        technicalSkills: "Advanced Technical Skills",
+        skillFigma: "Figma & Sketch",
+        skillMotion: "Motion Graphics & Effects",
+        skillPrint: "Print Design & Production",
+        skillWeb: "Web Design & Responsiveness",
+        creativeSkills: "Creative & Leadership Skills",
+        skillConcept: "Concept Development & Creativity",
+        skillBranding: "Visual Identity & Marketing",
+        skillColor: "Color Theory & Coordination",
+        skillIllustration: "Illustration & Artistic Drawing",
+        
+        // Contact Page
+        contactTitle: "Contact Me",
+        contactDescription: "Welcome! Feel free to contact me to discuss your upcoming design project or for any other inquiries. I'll be happy to assist you and transform your ideas into a distinctive creative reality.",
+        contactAddressTitle: "Address",
+        contactAddress: "Riyadh, Saudi Arabia",
+        contactPhoneTitle: "Phone",
+        contactEmailTitle: "Email",
+        contactHoursTitle: "Working Hours",
+        contactHours: "Sunday - Thursday: 9 AM - 6 PM",
+        formName: "Full Name *",
+        formEmail: "Email Address *",
+        formSubject: "Subject *",
+        formMessage: "Message *",
+        formMessagePlaceholder: "Hello Aseel, I would like to discuss a design project with you...",
+        formSubmit: "Send Message",
+        
+        // Footer
+        footerLogo: "Aseel",
+        footerDescription: "Professional graphic designer specialized in creating visual identities and innovative creative designs. I always strive for excellence and creativity in every project.",
+        footerQuickLinks: "Quick Links",
+        footerServices: "My Services",
+        service1: "Visual Identity Design",
+        service2: "Print Material Design",
+        service3: "User Interface Design",
+        service4: "Website Design",
+        service5: "Animation & Effects",
+        footerNewsletter: "Subscribe to Newsletter",
+        footerNewsletterDesc: "Subscribe to receive my latest works and exclusive design tips.",
+        newsletterPlaceholder: "Your Email",
+        footerCopyright: "© Aseel. All rights reserved.",
+        footerPrivacy: "Privacy Policy"
+    }
+};
+
+// تهيئة الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    // نظام الترجمة الكامل
-    const translations = {
-        ar: {
-            // التنقل
-            logo: "Z.",
-            navHome: "الرئيسية",
-            navAbout: "عني",
-            navServices: "خدماتي",
-            navPortfolio: "حملاتي",
-            navClients: "عملائي",
-            navContact: "تواصل",
-            language: "EN",
-            
-            // الصفحة الرئيسية
-            heroBadge: "استراتيجي تسويق رقمي",
-            heroTitle1: "أبدع. أحلل.",
-            heroTitle2: "أحقق النمو.",
-            heroDescription: "أصمم استراتيجيات تسويقية ذكية تحول البيانات إلى نتائج ملموسة. خبرة 6+ سنوات في إدارة الحملات الناجحة.",
-            btnViewWork: "شاهد أعمالي",
-            btnLetsWork: "لنعمل معاً",
-            statProjects: "مشروع ناجح",
-            statClients: "رضا العملاء",
-            statGrowth: "% نمو في الأداء",
-            
-            // ملخص الأقسام
-            overviewTitle: "استكشف خبراتي",
-            overviewSubtitle: "تصفح أقسامي المختلفة وتعرف على خدماتي وخبراتي في التسويق الرقمي",
-            overviewAboutTitle: "عني",
-            overviewAboutDesc: "تعرف على مسيرتي المهنية وخبراتي في التسويق الرقمي",
-            overviewServicesTitle: "خدماتي",
-            overviewServicesDesc: "اكتشف خدماتي المتخصصة في التسويق الرقمي وإدارة الحملات",
-            overviewPortfolioTitle: "حملاتي",
-            overviewPortfolioDesc: "شاهد مجموعة من أبرز الحملات الناجحة التي قمت بإدارتها",
-            overviewClientsTitle: "عملائي",
-            overviewClientsDesc: "تعرف على الشركات التي عملت معها ونتائج شراكاتنا",
-            
-            // إحصائيات سريعة
-            statSalesGrowth: "نمو في المبيعات",
-            statGoalAchievement: "تحقيق الأهداف",
-            statSupport: "دعم ومتابعة",
-            
-            // صفحة عني
-            aboutTitle: "عني",
-            aboutSubtitle: "خبير تسويق رقمي مع شغف لتحويل البيانات إلى استراتيجيات ناجحة",
-            aboutName: "زياد أحمد",
-            aboutPosition: "استراتيجي تسويق رقمي",
-            aboutDescription: "مع أكثر من 6 سنوات من الخبرة في التسويق الرقمي، تخصصت في تحويل البيانات المعقدة إلى استراتيجيات تسويقية فعالة. أساعد الشركات على النمو من خلال فهم عميق لسلوك العملاء وتطوير حلول مخصصة.",
-            aboutProjects: "مشروع منجز",
-            aboutHappyClients: "عميل سعيد",
-            aboutExperience: "سنوات خبرة",
-            skillsTitle: "تخصصاتي الرئيسية",
-            skill1: "إعلانات وسائل التواصل",
-            skill2: "تحليل البيانات",
-            skill3: "استراتيجية المحتوى",
-            skill4: "تحسين محركات البحث",
-            skill5: "إدارة الحملات",
-            skill6: "تحسين التحويل",
-            timeline1Title: "بداية الرحلة",
-            timeline1Desc: "تأسيس أول مشروع تسويقي رقمي مستقل",
-            timeline2Title: "التخصص",
-            timeline2Desc: "التركيز على إعلانات وسائل التواصل والتحليلات",
-            timeline3Title: "التميز",
-            timeline3Desc: "توسيع نطاق العمل ليشمل استراتيجيات متكاملة",
-            
-            // صفحة الخدمات
-            servicesTitle: "خدماتي",
-            servicesSubtitle: "حلول تسويقية شاملة مصممة لتحقيق أهدافك",
-            service1Title: "إعلانات وسائل التواصل",
-            service1Desc: "إدارة متكاملة لحملات الإعلانات على جميع المنصات الرقمية",
-            service1Feature1: "فيسبوك وإنستغرام",
-            service1Feature2: "تيك توك وسناب شات",
-            service1Feature3: "لينكدإن وتويتر",
-            service2Title: "تحليل البيانات",
-            service2Desc: "تحليل أداء الحملات وتقديم تقارير مفصلة واقتراحات تحسين",
-            service2Feature1: "تقارير أداء أسبوعية",
-            service2Feature2: "تحليل المنافسين",
-            service2Feature3: "توصيات عملية",
-            service3Title: "تحسين محركات البحث",
-            service3Desc: "تحسين ظهور موقعك في نتائج البحث وزيادة الزيارات العضوية",
-            service3Feature1: "بحث الكلمات المفتاحية",
-            service3Feature2: "تحسين المحتوى",
-            service3Feature3: "بناء الروابط",
-            service4Title: "استراتيجية محتوى",
-            service4Desc: "تخطيط وتنفيذ استراتيجيات محتوى فعالة تجذب الجمهور",
-            service4Feature1: "تخطيط المحتوى",
-            service4Feature2: "كتابة الإعلانات",
-            service4Feature3: "إدارة المحتوى",
-            servicePopular: "الأكثر طلباً",
-            
-            // عملية العمل
-            processTitle: "كيف أعمل؟",
-            step1Title: "التحليل والتخطيط",
-            step1Desc: "فهم عميق للأهداف وتحليل السوق المستهدف",
-            step2Title: "التنفيذ",
-            step2Desc: "تنفيذ الاستراتيجية بدقة مع مراقبة مستمرة",
-            step3Title: "التحسين",
-            step3Desc: "تحسين مستمر للأداء بناءً على البيانات",
-            step4Title: "التقارير",
-            step4Desc: "تقديم تقارير مفصلة ونصائح للتحسين",
-            
-            // صفحة الحملات
-            portfolioTitle: "حملاتي الناجحة",
-            portfolioSubtitle: "أمثلة حية لاستراتيجيات تسويقية حققت نتائج مذهلة",
-            filterAll: "الكل",
-            filterSocial: "وسائل التواصل",
-            filterSEO: "تحسين محركات البحث",
-            filterContent: "استراتيجية محتوى",
-            viewDetails: "عرض التفاصيل",
-            categorySocial: "وسائل التواصل",
-            categorySEO: "تحسين محركات البحث",
-            categoryContent: "استراتيجية محتوى",
-            project1Title: "حملة إطلاق العلامة التجارية",
-            project1Desc: "حملة متكاملة لإطلاق علامة تجارية جديدة في سوق الأزياء",
-            project1Views: "2.5M مشاهدة",
-            project1Engagement: "25% تفاعل",
-            project2Title: "زيادة الظهور العضوي",
-            project2Desc: "تحسين ترتيب موقع إلكتروني في نتائج البحث الأولى",
-            project2Traffic: "+200% زيارات",
-            project2Ranking: "15 مرتبة",
-            project3Title: "بناء الهوية الرقمية",
-            project3Desc: "تطوير هوية رقمية متكاملة لشركة تقنية ناشئة",
-            project3Followers: "+50K متابع",
-            project3Growth: "85% نمو",
-            
-            // صفحة العملاء
-            clientsTitle: "عملائي",
-            clientsSubtitle: "شراكات ناجحة بنيت على الثقة والنتائج الملموسة",
-            client1Name: "شركة TechCo",
-            client1Testimonial: "\"زياد ساعدنا على زيادة مبيعاتنا بنسبة 300% خلال 6 أشهر فقط.\"",
-            client1Person: "أحمد السيد",
-            client1Position: "مدير التسويق",
-            client2Name: "متجر StyleHub",
-            client2Testimonial: "\"استراتيجياته المبتكرة حولت علامتنا التجارية إلى رائدة في السوق.\"",
-            client2Person: "سارة محمد",
-            client2Position: "المؤسسة والمديرة",
-            testimonial1: "\"العمل مع زياد كان نقلة نوعية في استراتيجيتنا التسويقية. النتائج تتحدث عن نفسها.\"",
-            testimonial1Name: "محمد الخالد",
-            testimonial1Position: "CEO, EduSmart",
-            testimonial2: "\"محترف جداً وفهم عميق لاحتياجات السوق. أنصح بالعمل معه بشدة.\"",
-            testimonial2Name: "نورة القحطاني",
-            testimonial2Position: "مديرة التسويق, Foodie",
-            
-            // صفحة الاتصال
-            contactTitle: "لنعمل معاً",
-            contactSubtitle: "لنتحدث عن مشروعك ونبدأ رحلة النمو معاً",
-            contactEmail: "البريد الإلكتروني",
-            contactPhone: "الهاتف",
-            contactHours: "ساعات العمل",
-            contactHoursText: "الأحد - الخميس: 9 ص - 6 م",
-            formName: "اسمك الكامل",
-            formEmail: "بريدك الإلكتروني",
-            formProjectType: "نوع المشروع",
-            formMessage: "أخبرني عن مشروعك وأهدافك...",
-            formSelectProject: "نوع المشروع",
-            formConsulting: "استشارة تسويقية",
-            formAds: "إعلانات وسائل التواصل",
-            formSEO: "تحسين محركات البحث",
-            formStrategy: "استراتيجية محتوى",
-            btnSend: "إرسال الطلب",
-            
-            // زر العودة
-            btnBackHome: "العودة للرئيسية",
-            
-            // التذييل
-            footerDescription: "استراتيجي تسويق رقمي متخصص في تحويل الأفكار إلى نتائج ملموسة. أجمع بين الإبداع والتحليل لبناء استراتيجيات ناجحة.",
-            copyright: "© 2024 زياد. جميع الحقوق محفوظة."
-        },
-        en: {
-            // Navigation
-            logo: "Z.",
-            navHome: "Home",
-            navAbout: "About",
-            navServices: "Services",
-            navPortfolio: "Portfolio",
-            navClients: "Clients",
-            navContact: "Contact",
-            language: "AR",
-            
-            // Home Page
-            heroBadge: "Digital Marketing Strategist",
-            heroTitle1: "Create. Analyze.",
-            heroTitle2: "Achieve Growth.",
-            heroDescription: "I design smart marketing strategies that transform data into tangible results. 6+ years of experience in managing successful campaigns.",
-            btnViewWork: "View My Work",
-            btnLetsWork: "Let's Work Together",
-            statProjects: "Successful Projects",
-            statClients: "Client Satisfaction",
-            statGrowth: "% Performance Growth",
-            
-            // Sections Overview
-            overviewTitle: "Explore My Expertise",
-            overviewSubtitle: "Browse through my different sections to learn about my services and experience in digital marketing",
-            overviewAboutTitle: "About Me",
-            overviewAboutDesc: "Learn about my professional journey and experience in digital marketing",
-            overviewServicesTitle: "My Services",
-            overviewServicesDesc: "Discover my specialized services in digital marketing and campaign management",
-            overviewPortfolioTitle: "My Campaigns",
-            overviewPortfolioDesc: "View a collection of the most successful campaigns I've managed",
-            overviewClientsTitle: "My Clients",
-            overviewClientsDesc: "Learn about the companies I've worked with and the results of our partnerships",
-            
-            // Quick Stats
-            statSalesGrowth: "Sales Growth",
-            statGoalAchievement: "Goal Achievement",
-            statSupport: "Support & Follow-up",
-            
-            // About Page
-            aboutTitle: "About Me",
-            aboutSubtitle: "Digital marketing expert with a passion for transforming data into successful strategies",
-            aboutName: "Ziad Ahmed",
-            aboutPosition: "Digital Marketing Strategist",
-            aboutDescription: "With over 6 years of experience in digital marketing, I specialize in transforming complex data into effective marketing strategies. I help companies grow through deep understanding of customer behavior and developing customized solutions.",
-            aboutProjects: "Completed Projects",
-            aboutHappyClients: "Happy Clients",
-            aboutExperience: "Years of Experience",
-            skillsTitle: "My Main Specialties",
-            skill1: "Social Media Advertising",
-            skill2: "Data Analysis",
-            skill3: "Content Strategy",
-            skill4: "SEO Optimization",
-            skill5: "Campaign Management",
-            skill6: "Conversion Optimization",
-            timeline1Title: "The Beginning",
-            timeline1Desc: "Establishing the first independent digital marketing project",
-            timeline2Title: "Specialization",
-            timeline2Desc: "Focusing on social media advertising and analytics",
-            timeline3Title: "Excellence",
-            timeline3Desc: "Expanding work scope to include integrated strategies",
-            
-            // Services Page
-            servicesTitle: "My Services",
-            servicesSubtitle: "Comprehensive marketing solutions designed to achieve your goals",
-            service1Title: "Social Media Advertising",
-            service1Desc: "Complete management of advertising campaigns across all digital platforms",
-            service1Feature1: "Facebook & Instagram",
-            service1Feature2: "TikTok & Snapchat",
-            service1Feature3: "LinkedIn & Twitter",
-            service2Title: "Data Analysis",
-            service2Desc: "Campaign performance analysis and detailed reports with improvement suggestions",
-            service2Feature1: "Weekly Performance Reports",
-            service2Feature2: "Competitor Analysis",
-            service2Feature3: "Practical Recommendations",
-            service3Title: "SEO Optimization",
-            service3Desc: "Improving your website's appearance in search results and increasing organic traffic",
-            service3Feature1: "Keyword Research",
-            service3Feature2: "Content Optimization",
-            service3Feature3: "Link Building",
-            service4Title: "Content Strategy",
-            service4Desc: "Planning and implementing effective content strategies that attract audiences",
-            service4Feature1: "Content Planning",
-            service4Feature2: "Ad Copywriting",
-            service4Feature3: "Content Management",
-            servicePopular: "Most Popular",
-            
-            // Work Process
-            processTitle: "How I Work?",
-            step1Title: "Analysis & Planning",
-            step1Desc: "Deep understanding of goals and target market analysis",
-            step2Title: "Implementation",
-            step2Desc: "Precise strategy implementation with continuous monitoring",
-            step3Title: "Optimization",
-            step3Desc: "Continuous performance optimization based on data",
-            step4Title: "Reporting",
-            step4Desc: "Detailed reports and improvement recommendations",
-            
-            // Portfolio Page
-            portfolioTitle: "My Successful Campaigns",
-            portfolioSubtitle: "Live examples of marketing strategies that achieved amazing results",
-            filterAll: "All",
-            filterSocial: "Social Media",
-            filterSEO: "SEO",
-            filterContent: "Content Strategy",
-            viewDetails: "View Details",
-            categorySocial: "Social Media",
-            categorySEO: "SEO Optimization",
-            categoryContent: "Content Strategy",
-            project1Title: "Brand Launch Campaign",
-            project1Desc: "Complete campaign to launch a new brand in the fashion market",
-            project1Views: "2.5M Views",
-            project1Engagement: "25% Engagement",
-            project2Title: "Organic Visibility Increase",
-            project2Desc: "Improving website ranking in top search results",
-            project2Traffic: "+200% Traffic",
-            project2Ranking: "15 Positions",
-            project3Title: "Digital Identity Building",
-            project3Desc: "Developing a complete digital identity for a tech startup",
-            project3Followers: "+50K Followers",
-            project3Growth: "85% Growth",
-            
-            // Clients Page
-            clientsTitle: "My Clients",
-            clientsSubtitle: "Successful partnerships built on trust and tangible results",
-            client1Name: "TechCo Company",
-            client1Testimonial: "\"Ziad helped us increase our sales by 300% in just 6 months.\"",
-            client1Person: "Ahmed Al-Sayed",
-            client1Position: "Marketing Manager",
-            client2Name: "StyleHub Store",
-            client2Testimonial: "\"His innovative strategies transformed our brand into a market leader.\"",
-            client2Person: "Sara Mohamed",
-            client2Position: "Founder & Director",
-            testimonial1: "\"Working with Ziad was a qualitative leap in our marketing strategy. The results speak for themselves.\"",
-            testimonial1Name: "Mohamed Al-Khaled",
-            testimonial1Position: "CEO, EduSmart",
-            testimonial2: "\"Extremely professional with deep understanding of market needs. Highly recommend working with him.\"",
-            testimonial2Name: "Nora Al-Qahtani",
-            testimonial2Position: "Marketing Director, Foodie",
-            
-            // Contact Page
-            contactTitle: "Let's Work Together",
-            contactSubtitle: "Let's discuss your project and start the growth journey together",
-            contactEmail: "Email",
-            contactPhone: "Phone",
-            contactHours: "Working Hours",
-            contactHoursText: "Sunday - Thursday: 9 AM - 6 PM",
-            formName: "Full Name",
-            formEmail: "Email Address",
-            formProjectType: "Project Type",
-            formMessage: "Tell me about your project and goals...",
-            formSelectProject: "Project Type",
-            formConsulting: "Marketing Consultation",
-            formAds: "Social Media Advertising",
-            formSEO: "SEO Optimization",
-            formStrategy: "Content Strategy",
-            btnSend: "Send Request",
-            
-            // Back Button
-            btnBackHome: "Back to Home",
-            
-            // Footer
-            footerDescription: "Digital marketing strategist specializing in transforming ideas into tangible results. I combine creativity and analysis to build successful strategies.",
-            copyright: "© 2024 Ziad. All rights reserved."
-        }
-    };
-
-    // تهيئة المتغيرات
-    let currentLang = localStorage.getItem('portfolioLanguage') || 'ar';
-    let currentPage = window.location.hash.substring(1) || 'home';
+    // تهيئة تأثير الجزيئات المتحركة
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 1000 } },
+                color: { value: "#2A2A2A" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#B8860B",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+    }
     
-    // العناصر الأساسية
-    const navMenu = document.querySelector('.nav-menu');
-    const navToggle = document.querySelector('.nav-toggle');
-    const languageBtn = document.getElementById('languageBtn');
-    const languageDropdown = document.querySelector('.language-dropdown');
-    const scrollTopBtn = document.querySelector('.scroll-top');
-
-    // تهيئة الصفحة
-    initPortfolio();
-
-    function initPortfolio() {
-        setupNavigation();
-        setupLanguageSwitcher();
-        setupPageTransitions();
-        setupScrollEffects();
-        setupCounters();
-        setupCharts();
-        setupFilter();
-        setupForm();
-        setupAnimations();
-        
-        // تعيين اللغة المحددة
-        changeLanguage(currentLang);
-        
-        // تفعيل الصفحة الحالية
-        activatePage(currentPage);
-        updateActiveNav(currentPage);
-    }
-
-    // إعداد التنقل بين الصفحات
-    function setupNavigation() {
-        // تحديث الروابط النشطة عند التمرير
-        window.addEventListener('scroll', updateNavOnScroll);
-        
-        // التنقل عند النقر على الروابط
-        document.querySelectorAll('.nav-link, .overview-card, .btn[data-section]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const section = this.getAttribute('data-section') || 
-                               this.getAttribute('href').substring(1);
-                
-                if (section) {
-                    navigateToPage(section);
-                    
-                    // إغلاق القائمة على الأجهزة المحمولة
-                    if (window.innerWidth <= 768) {
-                        navMenu.classList.remove('active');
-                        navToggle.classList.remove('active');
-                    }
-                }
-            });
-        });
-        
-        // زر القائمة للموبايل
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            this.classList.toggle('active');
-        });
-        
-        // التعامل مع زر الرجوع في المتصفح
-        window.addEventListener('popstate', function() {
-            const page = window.location.hash.substring(1) || 'home';
-            activatePage(page);
-            updateActiveNav(page);
-        });
-    }
-
-    // تحديث التنقل عند التمرير
-    function updateNavOnScroll() {
-        const sections = document.querySelectorAll('.page');
-        const scrollPosition = window.scrollY + 100;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                updateActiveNav(sectionId);
-            }
-        });
-    }
-
-    // تحديث الروابط النشطة
-    function updateActiveNav(pageId) {
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-        
-        const activeLink = document.querySelector(`.nav-link[data-section="${pageId}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
-            
-            // تحديث موقع المؤشر
-            const indicator = document.querySelector('.nav-indicator');
-            if (indicator) {
-                const linkRect = activeLink.getBoundingClientRect();
-                const menuRect = activeLink.parentElement.getBoundingClientRect();
-                
-                indicator.style.width = `${linkRect.width}px`;
-                indicator.style.transform = `translateX(${linkRect.left - menuRect.left}px)`;
-            }
-        }
-    }
-
-    // الانتقال إلى صفحة محددة
-    function navigateToPage(pageId) {
-        // تحديث عنوان URL
-        window.location.hash = pageId;
-        history.pushState(null, null, `#${pageId}`);
-        
-        // تفعيل الصفحة الجديدة
-        activatePage(pageId);
-        updateActiveNav(pageId);
-        
-        // التمرير السلس إلى أعلى الصفحة
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // تفعيل صفحة محددة
-    function activatePage(pageId) {
-        // إخفاء جميع الصفحات
-        document.querySelectorAll('.page').forEach(page => {
-            page.classList.remove('active');
-        });
-        
-        // إظهار الصفحة المطلوبة
-        const targetPage = document.getElementById(pageId);
-        if (targetPage) {
-            targetPage.classList.add('active');
-            
-            // إعادة تفعيل العناصر الديناميكية
-            setTimeout(() => {
-                if (pageId === 'home') {
-                    setupCounters();
-                    setupCharts();
-                }
-                
-                if (pageId === 'portfolio') {
-                    setupFilter();
-                }
-                
-                setupAnimations();
-            }, 300);
-        }
-    }
-
-    // إعداد تبديل اللغة
-    function setupLanguageSwitcher() {
-        // زر تبديل اللغة
-        languageBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            languageDropdown.classList.toggle('show');
-        });
-        
-        // اختيار لغة
-        document.querySelectorAll('.lang-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                changeLanguage(lang);
-                languageDropdown.classList.remove('show');
-            });
-        });
-        
-        // إغلاق القائمة عند النقر خارجها
-        document.addEventListener('click', function(e) {
-            if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
-                languageDropdown.classList.remove('show');
-            }
-        });
-    }
-
-    // تغيير اللغة
+    // تهيئة متغيرات التنقل
+    let currentLang = 'ar';
+    let currentPage = 'home';
+    
+    // عناصر الصفحات
+    const pages = document.querySelectorAll('.page');
+    const navLinksElements = document.querySelectorAll('.nav-link');
+    const backToHomeFixed = document.getElementById('backToHomeFixed');
+    
+    // وظيفة تغيير اللغة
     function changeLanguage(lang) {
         currentLang = lang;
-        localStorage.setItem('portfolioLanguage', lang);
         
-        // تغيير اتجاه الصفحة
+        // تحديث اتجاه الصفحة
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         document.documentElement.lang = lang;
         
         // تغيير الخط حسب اللغة
-        document.body.style.fontFamily = lang === 'ar' ? "'Tajawal', sans-serif" : "'Inter', sans-serif";
-        
-        // تحديث جميع النصوص
-        updateAllTexts();
-        
-        // تحديث زر اللغة
-        const langText = languageBtn.querySelector('.current-lang');
-        if (langText) {
-            langText.textContent = translations[lang].language;
+        if (lang === 'ar') {
+            document.body.style.fontFamily = "'Almarai', serif";
+            document.querySelectorAll('.hero h1, .sections-title, .card-title, .profile-info h1, h1').forEach(el => {
+                el.style.fontFamily = "'Almarai', serif";
+            });
+        } else {
+            document.body.style.fontFamily = "'Cormorant Garamond', serif";
+            document.querySelectorAll('.hero h1, .sections-title, .card-title, .profile-info h1, h1').forEach(el => {
+                el.style.fontFamily = "'Cormorant Garamond', serif";
+            });
         }
         
-        // تحديث خيارات اللغة النشطة
-        document.querySelectorAll('.lang-option').forEach(option => {
-            option.classList.remove('active');
-            if (option.getAttribute('data-lang') === lang) {
-                option.classList.add('active');
-            }
-        });
-    }
-
-    // تحديث جميع النصوص
-    function updateAllTexts() {
-        const elements = document.querySelectorAll('[data-key]');
+        // تحديث جميع النصوص
+        updateAllTexts(lang);
         
+        // تحديث اتجاه أيقونة زر العودة
+        updateBackButtonIcon();
+    }
+    
+    // وظيفة تحديث جميع النصوص
+    function updateAllTexts(lang) {
+        const elements = document.querySelectorAll('[data-key]');
         elements.forEach(element => {
             const key = element.getAttribute('data-key');
-            
-            if (translations[currentLang][key]) {
-                const text = translations[currentLang][key];
-                
+            if (translations[lang][key]) {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    if (element.hasAttribute('data-placeholder')) {
-                        element.setAttribute('placeholder', text);
+                    if (element.hasAttribute('placeholder')) {
+                        element.setAttribute('placeholder', translations[lang][key]);
+                    } else if (element.id === 'message') {
+                        // نص افتراضي خاص لحقل الرسالة
+                        element.textContent = translations[lang][key];
                     }
-                } else if (element.tagName === 'SELECT') {
-                    // تحديث خيارات التحديد
-                    const options = element.querySelectorAll('option[data-key]');
-                    options.forEach(option => {
-                        const optionKey = option.getAttribute('data-key');
-                        if (translations[currentLang][optionKey]) {
-                            option.textContent = translations[currentLang][optionKey];
-                        }
-                    });
-                    
-                    // تحديث الخيار المحدد افتراضياً
-                    const defaultOption = element.querySelector('option[value=""]');
-                    if (defaultOption && defaultOption.getAttribute('data-key')) {
-                        const defaultKey = defaultOption.getAttribute('data-key');
-                        defaultOption.textContent = translations[currentLang][defaultKey];
+                } else if (element.hasAttribute('data-placeholder-key')) {
+                    const placeholderKey = element.getAttribute('data-placeholder-key');
+                    if (translations[lang][placeholderKey]) {
+                        element.setAttribute('placeholder', translations[lang][placeholderKey]);
                     }
                 } else if (element.tagName === 'BUTTON' && element.type === 'submit') {
-                    const icon = element.querySelector('i');
-                    if (icon) {
-                        element.innerHTML = `<span>${text}</span> ${icon.outerHTML}`;
+                    element.innerHTML = `<i class="fas fa-paper-plane"></i> ${translations[lang][key]}`;
+                } else {
+                    // التعامل مع النصوص التي تحتوي على فواصل أسطر
+                    const text = translations[lang][key];
+                    if (text.includes('<br>')) {
+                        element.innerHTML = text;
                     } else {
                         element.textContent = text;
                     }
-                } else {
-                    element.textContent = text;
                 }
             }
         });
+        
+        // تحديث زر تغيير اللغة
+        const languageToggle = document.getElementById('languageToggle');
+        if (languageToggle) {
+            const span = languageToggle.querySelector('span');
+            if (span) {
+                span.textContent = lang === 'ar' ? 'EN' : 'AR';
+            }
+        }
     }
-
-    // تأثيرات التمرير
-    function setupScrollEffects() {
-        // إظهار/إخفاء زر الرجوع للأعلى
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('visible');
+    
+    // وظيفة تحديث أيقونة زر العودة
+    function updateBackButtonIcon() {
+        const backBtns = document.querySelectorAll('.back-btn-fixed i');
+        backBtns.forEach(icon => {
+            if (currentLang === 'ar') {
+                icon.className = 'fas fa-arrow-right';
             } else {
-                scrollTopBtn.classList.remove('visible');
+                icon.className = 'fas fa-arrow-left';
             }
-            
-            // تفعيل العناصر عند التمرير
-            activateElementsOnScroll();
+        });
+    }
+    
+    // وظيفة تغيير الصفحة
+    function changePage(pageId) {
+        if (pageId === currentPage) return;
+        
+        // إخفاء جميع الصفحات
+        pages.forEach(page => {
+            page.classList.remove('active');
         });
         
-        // زر الرجوع للأعلى
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // إزالة النشاط من جميع روابط التنقل
+        navLinksElements.forEach(navLink => {
+            navLink.classList.remove('active');
+        });
+        
+        // إظهار الصفحة المحددة
+        document.getElementById(pageId).classList.add('active');
+        
+        // إضافة النشاط للرابط المحدد
+        document.querySelectorAll(`[data-page="${pageId}"]`).forEach(link => {
+            if (link.classList.contains('nav-link')) {
+                link.classList.add('active');
+            }
+        });
+        
+        // تحديث المتغير الحالي
+        currentPage = pageId;
+        
+        // إدارة زر العودة الثابت
+        if (backToHomeFixed) {
+            if (pageId === 'home') {
+                backToHomeFixed.style.display = 'none';
+            } else {
+                backToHomeFixed.style.display = 'block';
+            }
+        }
+        
+        // إغلاق القائمة على الأجهزة المحمولة
+        if (window.innerWidth <= 768) {
+            document.getElementById('navContainer').classList.remove('active');
+            document.getElementById('menuToggle').innerHTML = '<i class="fas fa-bars"></i>';
+        }
+        
+        // تفعيل تأثير شريط المهارات إذا كانت الصفحة هي المهارات
+        if (pageId === 'skills') {
+            setTimeout(animateSkills, 300);
+        }
+        
+        // تفعيل تأثيرات البطاقات
+        setTimeout(checkCards, 300);
+        
+        // التمرير لأعلى الصفحة
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // تبديل القائمة على الأجهزة المحمولة
+    const menuToggle = document.getElementById('menuToggle');
+    const navContainer = document.getElementById('navContainer');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navContainer.classList.toggle('active');
+            this.innerHTML = navContainer.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    }
+    
+    // تبديل اللغة بنقرة واحدة
+    const languageToggle = document.getElementById('languageToggle');
+    
+    if (languageToggle) {
+        languageToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            changeLanguage(newLang);
+        });
+    }
+    
+    // التنقل عبر روابط القائمة
+    navLinksElements.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
+            changePage(pageId);
+        });
+    });
+    
+    // التنقل عبر الشعار
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            changePage('home');
+        });
+    }
+    
+    // التنقل عبر زر العودة الثابت
+    if (backToHomeFixed) {
+        backToHomeFixed.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (e.target.closest('.back-btn-fixed')) {
+                changePage('home');
+            }
+        });
+    }
+    
+    // التنقل عبر بطاقات الملخص
+    const summaryCards = document.querySelectorAll('.summary-card');
+    summaryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const pageId = this.getAttribute('data-page');
+            changePage(pageId);
+        });
+    });
+    
+    // التنقل عبر أزرار الصفحة الرئيسية
+    document.querySelectorAll('.hero-buttons .btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
+            changePage(pageId);
+        });
+    });
+    
+    // التنقل عبر أزرار بطاقات الملخص
+    document.querySelectorAll('.summary-card .btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // منع تنفيذ حدث النقر على البطاقة
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
+            changePage(pageId);
+        });
+    });
+    
+    // التنقل عبر روابط التذييل
+    document.querySelectorAll('footer a[data-page]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
+            changePage(pageId);
+        });
+    });
+    
+    // تأثير شريط المهارات
+    const skillProgressElements = document.querySelectorAll('.skill-progress');
+    
+    function animateSkills() {
+        const skillsPage = document.getElementById('skills');
+        if (!skillsPage) return;
+        
+        const rect = skillsPage.getBoundingClientRect();
+        
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            skillProgressElements.forEach(skill => {
+                const width = skill.getAttribute('data-width');
+                skill.style.width = width + '%';
             });
-        });
+        }
     }
-
-    // تفعيل العناصر عند التمرير
-    function activateElementsOnScroll() {
-        const elements = document.querySelectorAll('.service-card, .portfolio-item, .client-card, .testimonial');
-        
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight * 0.85) {
-                element.classList.add('animated');
-            }
-        });
-    }
-
-    // تأثيرات الانتقال بين الصفحات
-    function setupPageTransitions() {
-        // إضافة تأثير انتقال سلس
-        document.body.style.transition = 'opacity 0.3s ease';
-    }
-
-    // العدادات المتحركة
-    function setupCounters() {
-        const counters = document.querySelectorAll('.stat-number[data-count]');
-        
-        counters.forEach(counter => {
-            if (counter.getAttribute('data-animated') === 'true') return;
-            
-            const target = parseInt(counter.getAttribute('data-count'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                    counter.setAttribute('data-animated', 'true');
-                }
-                counter.textContent = Math.floor(current);
-            }, 16);
-        });
-    }
-
-    // المخططات
-    function setupCharts() {
-        const canvas = document.getElementById('performanceChart');
-        if (!canvas) return;
-        
-        // منع إعادة إنشاء المخطط إذا كان موجوداً
-        if (canvas.chart) return;
-        
-        const ctx = canvas.getContext('2d');
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-        
-        // بيانات المخطط
-        const data = {
-            labels: currentLang === 'ar' ? 
-                ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'] :
-                ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [{
-                data: [65, 78, 90, 85, 92, 98],
-                borderColor: '#000000',
-                backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.4,
-                pointRadius: 4,
-                pointBackgroundColor: '#000000',
-                pointBorderColor: '#ffffff',
-                pointBorderWidth: 2
-            }]
-        };
-        
-        // خيارات المخطط
-        const options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    ticks: {
-                        color: '#666666'
-                    }
-                },
-                x: {
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    ticks: {
-                        color: '#666666'
-                    }
-                }
-            }
-        };
-        
-        // إنشاء المخطط
-        canvas.chart = new Chart(ctx, {
-            type: 'line',
-            data: data,
-            options: options
-        });
-    }
-
-    // تصفية المشاريع
-    function setupFilter() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // إزالة النشاط من جميع الأزرار
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // إضافة النشاط للزر المحدد
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                
-                // تصفية العناصر
-                portfolioItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    
-                    if (filter === 'all' || category === filter) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 10);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-    }
-
-    // النموذج
-    function setupForm() {
-        const form = document.getElementById('projectForm');
-        if (!form) return;
-        
-        form.addEventListener('submit', function(e) {
+    
+    // تشغيل تأثير المهارات عند التمرير
+    window.addEventListener('scroll', animateSkills);
+    
+    // إرسال نموذج الاتصال
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // إظهار رسالة النجاح
-            showNotification(
-                currentLang === 'ar' 
-                    ? 'شكراً لك! سنتواصل معك خلال 24 ساعة.' 
-                    : 'Thank you! We will contact you within 24 hours.',
-                'success'
-            );
+            // رسالة نجاح
+            const message = currentLang === 'ar' 
+                ? 'شكراً لك على رسالتك! سأعود إليك في أقرب وقت ممكن.' 
+                : 'Thank you for your message! I will get back to you as soon as possible.';
+            
+            showNotification(message);
             
             // إعادة تعيين النموذج
-            form.reset();
+            contactForm.reset();
         });
     }
-
-    // الحركات والتأثيرات
-    function setupAnimations() {
-        // حركة العناصر عند التمرير
-        const animatedElements = document.querySelectorAll('.service-card, .portfolio-item, .client-card, .testimonial');
-        
-        animatedElements.forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.1}s`;
-        });
-        
-        // تأثيرات التمرير فوق العناصر
-        const interactiveElements = document.querySelectorAll('.overview-card, .service-card, .portfolio-item, .client-card, .info-card');
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px)';
-            });
+    
+    // نموذج النشرة البريدية
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
             
-            element.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
+            if (email) {
+                // رسالة نجاح
+                const message = currentLang === 'ar' 
+                    ? 'شكراً لك على اشتراكك في النشرة البريدية!' 
+                    : 'Thank you for subscribing to our newsletter!';
+                
+                showNotification(message);
+                
+                // إعادة تعيين النموذج
+                this.reset();
+            }
         });
     }
-
-    // الإشعارات
-    function showNotification(message, type) {
+    
+    // وظيفة عرض الإشعارات
+    function showNotification(message) {
         const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas fa-check-circle"></i>
-                <span>${message}</span>
-            </div>
+        notification.className = 'notification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #0A0A0A, #2A2A2A);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            z-index: 9999;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateX(150%);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 4px solid #B8860B;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         `;
         
-        // إضافة الأنماط
-        if (!document.querySelector('#notification-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'notification-styles';
-            styles.textContent = `
-                .notification {
-                    position: fixed;
-                    top: 30px;
-                    right: 30px;
-                    background: #000000;
-                    color: #ffffff;
-                    padding: 20px 25px;
-                    border-radius: 12px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-                    z-index: 9999;
-                    transform: translateY(-100px);
-                    opacity: 0;
-                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                    border: 2px solid #000000;
-                }
-                
-                body[dir="ltr"] .notification {
-                    right: auto;
-                    left: 30px;
-                }
-                
-                .notification.show {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-                
-                .notification-content {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    font-weight: 500;
-                }
-                
-                .notification-content i {
-                    font-size: 20px;
-                }
-                
-                .notification-success {
-                    background: #000000;
-                    color: #ffffff;
-                }
-            `;
-            document.head.appendChild(styles);
-        }
+        notification.innerHTML = `
+            <i class="fas fa-check-circle" style="font-size: 24px; color: #B8860B;"></i>
+            <span style="font-size: 16px;">${message}</span>
+        `;
         
         document.body.appendChild(notification);
         
         // عرض الإشعار
-        setTimeout(() => notification.classList.add('show'), 10);
-        
-        // إخفاء الإشعار بعد 4 ثواني
         setTimeout(() => {
-            notification.classList.remove('show');
+            notification.style.transform = 'translateX(0)';
+        }, 10);
+        
+        // إخفاء الإشعار بعد 5 ثواني
+        setTimeout(() => {
+            notification.style.transform = 'translateX(150%)';
             setTimeout(() => {
                 if (notification.parentNode) {
                     notification.parentNode.removeChild(notification);
                 }
-            }, 400);
-        }, 4000);
+            }, 600);
+        }, 5000);
     }
-
-    // تحسين أداء التمرير
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(function() {
-                updateNavOnScroll();
-                ticking = false;
-            });
-        }
+    
+    // إضافة تأثيرات للبطاقات عند التمرير
+    const cards = document.querySelectorAll('.card, .project-card, .summary-card, .skill-category, .contact-item');
+    
+    function checkCards() {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.85 && rect.bottom >= 0) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }
+        });
+    }
+    
+    // إعداد البطاقات الأولية
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     });
-
-    // إضافة حركة للصفحة عند التحميل
-    setTimeout(() => {
-        document.body.classList.add('loaded');
-        activateElementsOnScroll();
-    }, 100);
+    
+    // تفعيل تأثيرات البطاقات عند التحميل
+    setTimeout(checkCards, 300);
+    
+    // تفعيل تأثيرات البطاقات عند التمرير
+    window.addEventListener('scroll', checkCards);
+    
+    // تهيئة اللغة الافتراضية
+    changeLanguage('ar');
+    
+    // تحديث السنة في التذييل تلقائياً
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
+    
+    // إخفاء زر العودة في الصفحة الرئيسية
+    if (backToHomeFixed && currentPage === 'home') {
+        backToHomeFixed.style.display = 'none';
+    }
 });
